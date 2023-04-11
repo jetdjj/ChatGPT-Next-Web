@@ -127,12 +127,7 @@ function Modal({ onClose }: ModalProps) {
     setIsModalOpen(false);
   }
 
-  return (
-    <div>
-      <button onClick={handlePageButtonClick}>显示二维码</button>
-  
-    </div>
-  );
+ 
 
 
 

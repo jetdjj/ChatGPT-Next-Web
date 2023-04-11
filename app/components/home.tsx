@@ -102,7 +102,11 @@ function displayQrcode() {
 }
 
 
-function Modal({ onClose }) {
+type ModalProps = {
+  onClose: () => void;
+}
+
+function Modal({ onClose }: ModalProps) {
   return (
     <div className="modal">
       <button onClick={onClose}>关闭</button>
@@ -110,6 +114,7 @@ function Modal({ onClose }) {
     </div>
   );
 }
+
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);

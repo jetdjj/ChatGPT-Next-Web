@@ -85,44 +85,67 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
-
-
 function displayQrcode() {
-  const target = document.getElementById('target');
+  const container = document.createElement('div');
+  container.classList.add('popup-container');
+
+  const content = document.createElement('div');
+  content.classList.add('popup-content');
 
   const img = new Image();
   img.src = '/qrcode.png';
-  
-  if (target) {
-    // target.appendChild(img);
 
   const closeButton = document.createElement('button');
+  closeButton.classList.add('popup-close');
   closeButton.innerText = '关闭';
   closeButton.onclick = function () {
-    target.removeChild(img);
-    target.removeChild(closeButton);
+    document.body.removeChild(container);
   };
 
-  target.appendChild(img);
-  target.appendChild(closeButton); 
-} else {
-  console.error('Cannot find target element');
-}
+  content.appendChild(img);
+  content.appendChild(closeButton);
+
+  container.appendChild(content);
+  document.body.appendChild(container);
 }
 
+//旧非弹窗方法
+// function displayQrcode() {
+//   const target = document.getElementById('target');
 
-type ModalProps = {
-  onClose: () => void;
-}
+//   const img = new Image();
+//   img.src = '/qrcode.png';
+  
+//   if (target) {
+//     // target.appendChild(img);
 
-function Modal({ onClose }: ModalProps) {
-  return (
-    <div className="modal">
-      <button onClick={onClose}>关闭</button>
-      <img src="/qrcode.png" alt="QR code" />
-    </div>
-  );
-}
+//   const closeButton = document.createElement('button');
+//   closeButton.innerText = '关闭';
+//   closeButton.onclick = function () {
+//     target.removeChild(img);
+//     target.removeChild(closeButton);
+//   };
+
+//   target.appendChild(img);
+//   target.appendChild(closeButton); 
+// } else {
+//   console.error('Cannot find target element');
+// }
+// }
+
+
+// type ModalProps = {
+//   onClose: () => void;
+// }
+
+// function Modal({ onClose }: ModalProps) {
+//   return (
+//     <div className="modal">
+//       <button onClick={onClose}>关闭</button>
+//       <img src="/qrcode.png" alt="QR code" />
+//     </div>
+//   );
+// }
 
 
 

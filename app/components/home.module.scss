@@ -469,27 +469,43 @@
   height: 100%;
   width: 100%;
 }
-//悬停图片
-.qr-code-wrapper {
-  position: relative;
-  .qr-code-button {
-    background-color: transparent;
-    border: none;
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
-    &:hover {
-      color: #0048aa;
-    }
-  }
-  .qr-code-image {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 5px);
-    width: 100px;
-    height: 100px;
-    z-index: 1;
-  }
+//弹窗图片
+/* popup.css */
+.popup-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
+
+.popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+.popup-content img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+

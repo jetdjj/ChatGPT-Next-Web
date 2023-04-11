@@ -86,7 +86,7 @@ function displayQrcode() {
   const target = document.getElementById('target');
 
   const img = new Image();
-  img.src = 'path/to/your/image.jpg';
+  img.src = '/docs/images/qrcode.png';
 
   if (target) {
     target.appendChild(img);
@@ -95,7 +95,7 @@ function displayQrcode() {
   }
 }
 
-const showQRCode = () => {
+const useShowQRCode = () => {
   const [showQRCode, setShowQRCode] = useState(false);
   const handleMouseOver = () => {
     setShowQRCode(true);
@@ -117,7 +117,7 @@ const showQRCode = () => {
       {showQRCode && (
         <img
           className={styles["qr-code-image"]}
-          src="./qr-code.png"
+          src="/docs/images/qrcode.png"
           alt="QR Code"
         />
       )}

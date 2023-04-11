@@ -330,4 +330,4 @@ export function Home() {
     </ErrorBoundary>
   );
 }
-export default showQRCode;
+export default useShowQRCode;

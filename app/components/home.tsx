@@ -272,12 +272,20 @@ function _Home() {
               />
             </div>
             <div className={styles["sidebar-action"]}>
-            <button className={styles["page-button"]} onClick={handlePageButtonClick}>
+            {/* <button className={styles["page-button"]} onClick={handlePageButtonClick}>
      Click me
    </button>
    {isModalOpen && (
         <Modal onClose={closeModal} />
-      )}
+      )} */}
+      <IconButton
+                icon={<SettingsIcon />}
+                onClick={() => {
+                  handlePageButtonClick();
+                 
+                }}
+                shadow
+              />
             </div>
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}

@@ -36,7 +36,7 @@ export function Loading(props: { noLogo?: boolean }) {
   );
 }
 
-const target = document.getElementById('target');
+
 
 const Settings = dynamic(async () => (await import("./settings")).Settings, {
   loading: () => <Loading noLogo />,
@@ -79,19 +79,19 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
-// function displayQrcode(){
-//   // 获取要显示的图片路径
-//   const imageUrl: string = qrcode;
+function displayQrcode() {
+  const target = document.getElementById('target');
 
-//   // 获取图片标签
-//   const imageElement: HTMLImageElement = document.getElementById("showImage") as HTMLImageElement;
+  const img = new Image();
+  img.src = 'path/to/your/image.jpg';
 
-//   // 设置图片链接
-//   imageElement.src = imageUrl;
+  if (target) {
+    target.appendChild(img);
+  } else {
+    console.error('Cannot find target element');
+  }
+}
 
-//   // 显示图片
-//   imageElement.style.display = "block";
-// }
 
 function useDragSideBar() {
   const limit = (x: number) => Math.min(500, Math.max(220, x));
@@ -189,6 +189,7 @@ function _Home() {
       >
         <div id="target"></div>
 
+
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
@@ -234,10 +235,8 @@ function _Home() {
 
                 <IconButton icon={<GithubIcon />} 
                 onClick={ () => {
+                  displayQrcode();
                   
-                  const img = new Image();
-  img.src = '/docs/images/qrcode.png ';
-  target.appendChild(img);// 将 img 元素添加到图片容器中
                 }}
                 shadow />
              

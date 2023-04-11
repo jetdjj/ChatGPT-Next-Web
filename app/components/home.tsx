@@ -84,43 +84,45 @@ function useSwitchTheme() {
     }
   }, [config.theme]);
 }
-//div弹窗
+//openWindow弹窗
 // function displayQrcode() {
-//   const container = document.createElement('div');
-//   container.classList.add('popup-container');
+//   const url = '/qrcode.png';
+//   const name = 'qrcode_popup';
+//   const width = 400;
+//   const height = 400;
 
-//   const content = document.createElement('div');
-//   content.classList.add('popup-content');
+//   const left = window.screenX + (window.innerWidth - width) / 2;
+//   const top = window.screenY + (window.innerHeight - height) / 2;
 
-//   const img = new Image();
-//   img.src = '/qrcode.png';
+//   const options = `left=${left},top=${top},width=${width},height=${height}`;
 
-//   const closeButton = document.createElement('button');
-//   closeButton.classList.add('popup-close');
-//   closeButton.innerText = '关闭';
-//   closeButton.onclick = function () {
-//     document.body.removeChild(container);
-//   };
-
-//   content.appendChild(img);
-//   content.appendChild(closeButton);
-
-//   container.appendChild(content);
-//   document.body.appendChild(container);
+//   window.open(url, name, options);
 // }
 function displayQrcode() {
-  const url = '/qrcode.png';
-  const name = 'qrcode_popup';
-  const width = 400;
-  const height = 400;
+  const popupUrl = './popup.html';
+  const width = 600;
+  const height = 600;
+  const left = (window.screen.width - width) / 2;
+  const top = (window.screen.height - height) / 2;
+  const options = `width=${width},height=${height},left=${left},top=${top}`;
 
-  const left = window.screenX + (window.innerWidth - width) / 2;
-  const top = window.screenY + (window.innerHeight - height) / 2;
+  // Explicitly define the type of `popup` as `Window | null`
+    // Try to open the popup window
+    let popup = window.open(popupUrl, 'popup', options);
 
-  const options = `left=${left},top=${top},width=${width},height=${height}`;
+    // Load the QR code image in the popup
+    if (popup) {
+      popup.addEventListener('load', function () {
+        let img = popup.document.querySelector('img');
+        img.src = '/qrcode.png';
+      });
+    } else {
+      console.error('Failed to open popup window');
+    }
 
-  window.open(url, name, options);
 }
+
+
 
 //旧非弹窗方法
 // function displayQrcode() {
@@ -147,24 +149,8 @@ function displayQrcode() {
 // }
 
 
-// type ModalProps = {
-//   onClose: () => void;
-// }
-
-// function Modal({ onClose }: ModalProps) {
-//   return (
-//     <div className="modal">
-//       <button onClick={onClose}>关闭</button>
-//       <img src="/qrcode.png" alt="QR code" />
-//     </div>
-//   );
-// }
 
 
-
-
-
- 
 
 
 
@@ -317,13 +303,8 @@ function _Home() {
                 shadow
               />
             </div>
-            <div className={styles["sidebar-action"]}>
-            {/* <button className={styles["page-button"]} onClick={handlePageButtonClick}>
-     Click me
-   </button>
-   {isModalOpen && (
-        <Modal onClose={closeModal} />
-      )} */}
+            {/*左下角按钮添加 <div className={styles["sidebar-action"]}>
+           
       <IconButton
                 icon={<SettingsIcon />}
                 onClick={() => {
@@ -332,7 +313,7 @@ function _Home() {
                 }}
                 shadow
               />
-            </div>
+            </div> */}
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
             

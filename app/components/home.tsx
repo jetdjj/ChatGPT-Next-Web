@@ -82,23 +82,13 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
-const useShowQRCode = (): [boolean, () => void] => {
-  const [showQRCode, setShowQRCode] = useState(false);
-
-  const toggleQRCode = () => {
-    setShowQRCode((prevShowQRCode) => !prevShowQRCode);
-  };
-
-  return [showQRCode, toggleQRCode];
-};
-
 
 
 function displayQrcode() {
   const target = document.getElementById('target');
 
   const img = new Image();
-  img.src = '/docs/images/qrcode.png';
+  img.src = '/qrcode.png';
 
   if (target) {
     target.appendChild(img);
@@ -107,47 +97,10 @@ function displayQrcode() {
   }
 }
 
-
-type Props = {
-  message: string;
-};
-
-type QRCodeButtonProps = {
-  showQRCode: boolean;
-  setShowQRCode: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const QRCodeButton = ({ showQRCode, setShowQRCode }: QRCodeButtonProps) => (
-  <button
-    onClick={() => setShowQRCode(!showQRCode)}
-    style={{ position: 'relative', textAlign: 'center' }}
-  >
-    {/* 在按钮上渲染二维码图像 */}
-    {showQRCode && (
-      <img
-        src="https://example.com/my-qrcode.png"
-        alt="QR code"
-        style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translate(-50%, 5px)' }}
-      />
-    )}
-    {/* 按钮的其他内容 */}
-    <span style={{ whiteSpace: 'nowrap' }}>
-      Scan QR code
-    </span>
-  </button>
-);
-
-const MyComponent = ({ message }: Props) => {
-  const [showQRCode, setShowQRCode] = useShowQRCode();
-
-  return (
-    <div>
-      <p>{message}</p>
-      <QRCodeButton showQRCode={showQRCode} setShowQRCode={setShowQRCode} />
-    </div>
-  );
-};
-
+function handlePageButtonClick() {
+  console.log("Button is clicked");
+  // 这里可以添加具体的业务逻辑处理
+}
 
 
 
@@ -290,6 +243,12 @@ function _Home() {
               />
             </div>
             <div className={styles["sidebar-action"]}>
+            <button className={styles["page-button"]} onClick={handlePageButtonClick}>
+     Click me
+   </button>
+
+            </div>
+            <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
             
             {/* <div class="grcode"
@@ -356,4 +315,4 @@ export function Home() {
     </ErrorBoundary>
   );
 }
-export default useShowQRCode;
+

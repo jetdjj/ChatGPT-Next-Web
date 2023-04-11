@@ -116,7 +116,7 @@ function Modal({ onClose }: ModalProps) {
 }
 
 
-function App() {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handlePageButtonClick() {
@@ -130,12 +130,10 @@ function App() {
   return (
     <div>
       <button onClick={handlePageButtonClick}>显示二维码</button>
-      {isModalOpen && (
-        <Modal onClose={closeModal} />
-      )}
+  
     </div>
   );
-}
+
 
 
 
@@ -281,7 +279,9 @@ function _Home() {
             <button className={styles["page-button"]} onClick={handlePageButtonClick}>
      Click me
    </button>
-
+   {isModalOpen && (
+        <Modal onClose={closeModal} />
+      )}
             </div>
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}

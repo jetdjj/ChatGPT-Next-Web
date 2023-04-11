@@ -93,11 +93,9 @@ function displayQrcode() {
   const img = new Image();
   img.src = '/qrcode.png';
   
-  // if (target) {
-  //   target.appendChild(img);
-  // } else {
-  //   console.error('Cannot find target element');
-  // }
+  if (target) {
+    // target.appendChild(img);
+
   const closeButton = document.createElement('button');
   closeButton.innerText = '关闭';
   closeButton.onclick = function () {
@@ -107,6 +105,9 @@ function displayQrcode() {
 
   target.appendChild(img);
   target.appendChild(closeButton); 
+} else {
+  console.error('Cannot find target element');
+}
 }
 
 

@@ -25,7 +25,7 @@ import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
 
-// import qrcode from "/docs/images/qrcode.png"
+import qrcode from "/docs/images/qrcode.png";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -36,9 +36,7 @@ export function Loading(props: { noLogo?: boolean }) {
   );
 }
 
-const button = document.getElementById('my-button');
-const imageContainer = document.getElementById('image-container');
-
+const target = document.getElementById('target');
 
 const Settings = dynamic(async () => (await import("./settings")).Settings, {
   loading: () => <Loading noLogo />,
@@ -189,7 +187,8 @@ function _Home() {
       <div
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
-        <div id="image-container"></div>
+        <div id="target"></div>
+
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
@@ -235,11 +234,10 @@ function _Home() {
 
                 <IconButton icon={<GithubIcon />} 
                 onClick={ () => {
-                  const imageUrl = "/docs/images/qrcode.png"; // 图片链接，你可以使用你自己的图片链接替换这里
-                  const imageElement = document.createElement('img'); // 创建一个 img 元素
-                  imageElement.src = imageUrl; // 设置图片链接到 img 元素的 src 属性中
-                  imageElement.style.width = '100%'; // 设置图片宽度为容器的 100%
-                  imageContainer.appendChild(imageElement); // 将 img 元素添加到图片容器中
+                  
+                  const img = new Image();
+  img.src = '/docs/images/qrcode.png ';
+  target.appendChild(img);// 将 img 元素添加到图片容器中
                 }}
                 shadow />
              

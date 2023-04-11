@@ -226,7 +226,7 @@ function _Home() {
             <div className={styles["sidebar-action"]}>
             <button onClick={displayQrcode}>
                 <IconButton icon={<GithubIcon />} shadow />
-              </a>
+             
             </div>
           </div>
           <div>

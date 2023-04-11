@@ -37,7 +37,7 @@ export function Loading(props: { noLogo?: boolean }) {
 }
 
 
-const [isModalOpen, setIsModalOpen] = useState(false);
+
 
 
 

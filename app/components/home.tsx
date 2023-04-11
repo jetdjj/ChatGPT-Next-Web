@@ -233,10 +233,10 @@ function _Home() {
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
             
-            <div class="grcode"
+            {/* <div class="grcode"
                 style="display: inline-block;vertical-align:middle;
                 background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
-                <img src="/docs/images/qrcode.png"> </div>
+                <img src="/docs/images/qrcode.png"> </div> */}
             
                 <IconButton icon={<GithubIcon />} 
                 

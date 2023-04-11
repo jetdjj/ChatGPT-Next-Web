@@ -36,7 +36,7 @@ export function Loading(props: { noLogo?: boolean }) {
   );
 }
 
-const [showQRCode, setShowQRCode] = useState(false);
+
 
 
 
@@ -95,7 +95,8 @@ function displayQrcode() {
   }
 }
 
-function showQRCode1(){
+const showQRCode = () => {
+  const [showQRCode, setShowQRCode] = useState(false);
   const handleMouseOver = () => {
     setShowQRCode(true);
   };
@@ -122,7 +123,7 @@ function showQRCode1(){
       )}
     </div>
   );
-}
+};
 
 function useDragSideBar() {
   const limit = (x: number) => Math.min(500, Math.max(220, x));
@@ -180,6 +181,7 @@ const useHasHydrated = () => {
 
   return hasHydrated;
 };
+
 
 function _Home() {
   const [createNewSession, currentIndex, removeSession] = useChatStore(
@@ -328,3 +330,4 @@ export function Home() {
     </ErrorBoundary>
   );
 }
+export default showQRCode;

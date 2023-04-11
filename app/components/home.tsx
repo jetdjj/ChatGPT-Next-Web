@@ -201,8 +201,11 @@ function _Home() {
       <div
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
+        <button id="my-button">Hover me</button>
         <div id="target"></div>
-
+        <div id="qr-code-container">
+  <img id="qr-code" src="path/to/your/qr-code.jpg" alt="QR Code">
+</div>
         
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>

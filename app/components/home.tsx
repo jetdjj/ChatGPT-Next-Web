@@ -188,7 +188,7 @@ function _Home() {
       <div
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
-        <button id="my-button">Hover me</button>
+        
         <div id="target"></div>
         
         
@@ -233,9 +233,13 @@ function _Home() {
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
             
-            
+            <div class="grcode"
+                style="display: inline-block;vertical-align:middle;
+                background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
+                <img src="/docs/images/qrcode.png"> </div>
             
                 <IconButton icon={<GithubIcon />} 
+                
                 onClick={ () => {
                   displayQrcode();
                   
@@ -244,10 +248,7 @@ function _Home() {
                 shadow />
              
             </div>
-            <span class="grcode"
-style="display: inline-block;vertical-align:middle;
-background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
-<img src="/docs/images/qrcode.png"> </span>
+            
           </div>
           <div>
             <IconButton

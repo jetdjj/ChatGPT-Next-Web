@@ -77,7 +77,7 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
-function displayQrcode(): void {
+function displayQrcode(){
   // 获取要显示的图片路径
   const imageUrl: string = qrcode;
 

@@ -469,23 +469,27 @@
   height: 100%;
   width: 100%;
 }
-
-.grcode{ position: relative;
-}
-.grcode img{
-position: absolute;
-height: 140px;
-width: 140px;
-top: -155px;
-right: -55px;
-transform-origin: bottom;
-transform: scale(0);
-opacity: 0;
--webkit-transition: all .4s ease-in-out;
--o-transition: all .4s ease-in-out;
-transition: all .4s ease-in-out;
-}
-.grcode:hover img {
-transform: scale(1);
-opacity: 1;
+//悬停图片
+.qr-code-wrapper {
+  position: relative;
+  .qr-code-button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: #0048aa;
+    }
+  }
+  .qr-code-image {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 5px);
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+  }
 }

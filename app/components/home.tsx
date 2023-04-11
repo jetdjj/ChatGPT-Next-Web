@@ -36,6 +36,9 @@ export function Loading(props: { noLogo?: boolean }) {
   );
 }
 
+const [showQRCode, setShowQRCode] = useState(false);
+
+
 
 
 const Settings = dynamic(async () => (await import("./settings")).Settings, {
@@ -92,7 +95,34 @@ function displayQrcode() {
   }
 }
 
-
+function showQRCode1(){
+  const handleMouseOver = () => {
+    setShowQRCode(true);
+  };
+  
+  const handleMouseOut = () => {
+    setShowQRCode(false);
+  };
+  
+  return (
+    <div className={styles["qr-code-wrapper"]}>
+      <button
+        className={styles["qr-code-button"]}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        Show QR Code
+      </button>
+      {showQRCode && (
+        <img
+          className={styles["qr-code-image"]}
+          src="./qr-code.png"
+          alt="QR Code"
+        />
+      )}
+    </div>
+  );
+}
 
 function useDragSideBar() {
   const limit = (x: number) => Math.min(500, Math.max(220, x));

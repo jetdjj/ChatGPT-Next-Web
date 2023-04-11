@@ -25,6 +25,8 @@ import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
 
+import qrcode from ".../docs/images/qrcode.png"
+
 export function Loading(props: { noLogo?: boolean }) {
   return (
     <div className={styles["loading-content"]}>
@@ -73,6 +75,20 @@ function useSwitchTheme() {
       metaDescriptionLight?.setAttribute("content", themeColor);
     }
   }, [config.theme]);
+}
+
+function displayQrcode(): void {
+  // 获取要显示的图片路径
+  const imageUrl: string = qrcode;
+
+  // 获取图片标签
+  const imageElement: HTMLImageElement = document.getElementById("showImage") as HTMLImageElement;
+
+  // 设置图片链接
+  imageElement.src = imageUrl;
+
+  // 显示图片
+  imageElement.style.display = "block";
 }
 
 function useDragSideBar() {
@@ -169,9 +185,9 @@ function _Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>ChatGPT Next</div>
+          <div className={styles["sidebar-title"]}>ChatGPT DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
-            Build your own AI assistant.
+            豆浆机AI聊天机器人
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
@@ -207,7 +223,7 @@ function _Home() {
               />
             </div>
             <div className={styles["sidebar-action"]}>
-              <a href={REPO_URL} target="_blank">
+            <button onClick={displayQrcode}>
                 <IconButton icon={<GithubIcon />} shadow />
               </a>
             </div>

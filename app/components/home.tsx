@@ -190,10 +190,7 @@ function _Home() {
       >
         <button id="my-button">Hover me</button>
         <div id="target"></div>
-        <span class="grcode"
-style="display: inline-block;vertical-align:middle;
-background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
-<img src="/docs/images/qrcode.png"> </span>
+        
         
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
@@ -245,7 +242,10 @@ background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-si
                 }}
                 
                 shadow />
-             
+             <span class="grcode"
+style="display: inline-block;vertical-align:middle;
+background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
+<img src="/docs/images/qrcode.png"> </span>
             </div>
           </div>
           <div>

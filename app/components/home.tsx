@@ -25,7 +25,7 @@ import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
 
-import qrcode from "/docs/images/qrcode.png"
+// import qrcode from "/docs/images/qrcode.png"
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -35,6 +35,16 @@ export function Loading(props: { noLogo?: boolean }) {
     </div>
   );
 }
+
+const button = document.getElementById('my-button');
+const imageContainer = document.getElementById('image-container');
+button.addEventListener('click', () => {
+  const imageUrl = "/docs/images/qrcode.png"; // 图片链接，你可以使用你自己的图片链接替换这里
+  const imageElement = document.createElement('img'); // 创建一个 img 元素
+  imageElement.src = imageUrl; // 设置图片链接到 img 元素的 src 属性中
+  imageElement.style.width = '100%'; // 设置图片宽度为容器的 100%
+  imageContainer.appendChild(imageElement); // 将 img 元素添加到图片容器中
+});
 
 const Settings = dynamic(async () => (await import("./settings")).Settings, {
   loading: () => <Loading noLogo />,
@@ -77,19 +87,19 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
-function displayQrcode(){
-  // 获取要显示的图片路径
-  const imageUrl: string = qrcode;
+// function displayQrcode(){
+//   // 获取要显示的图片路径
+//   const imageUrl: string = qrcode;
 
-  // 获取图片标签
-  const imageElement: HTMLImageElement = document.getElementById("showImage") as HTMLImageElement;
+//   // 获取图片标签
+//   const imageElement: HTMLImageElement = document.getElementById("showImage") as HTMLImageElement;
 
-  // 设置图片链接
-  imageElement.src = imageUrl;
+//   // 设置图片链接
+//   imageElement.src = imageUrl;
 
-  // 显示图片
-  imageElement.style.display = "block";
-}
+//   // 显示图片
+//   imageElement.style.display = "block";
+// }
 
 function useDragSideBar() {
   const limit = (x: number) => Math.min(500, Math.max(220, x));
@@ -186,7 +196,7 @@ function _Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>ChatGPT DJJ</div>
+          <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
             豆浆机AI聊天机器人
           </div>
@@ -225,6 +235,9 @@ function _Home() {
             </div>
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
+            <div id="image-container"></div>
+            
+
                 <IconButton icon={<GithubIcon />} shadow />
              
             </div>

@@ -281,7 +281,7 @@ function _Home() {
       <IconButton
                 icon={<SettingsIcon />}
                 onClick={() => {
-                  handlePageButtonClick();
+                  setIsModalOpen(true);
                  
                 }}
                 shadow

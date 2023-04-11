@@ -106,11 +106,13 @@ function displayQrcode() {
   const top = (window.screen.height - height) / 2;
   const options = `width=${width},height=${height},left=${left},top=${top}`;
 
-  // Explicitly define the type of `popup` as `Window | null`
-    // Try to open the popup window
-    let popup: Window | null = window.open(popupUrl, options);
-    popup!.close(); // 非空断言操作符表示你能够肯定该变量不为Null，从而避免了TypeError
-    
+  let popup = window.open(popupUrl, 'popup', options)!;
+
+  // Load the QR code image in the popup
+  popup.addEventListener('load', function () {
+    let img = popup.document.querySelector('img');
+    img!.src = '/qrcode.png';
+  });
 
   
     

@@ -203,7 +203,7 @@ function _Home() {
       >
         <div id="target"></div>
 
-
+        
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
@@ -246,9 +246,7 @@ function _Home() {
             {/* <button onClick={displayQrcode}> */}
             
             
-            <div id="qr-code-container">
-  <img id="qr-code" src="path/to/your/qr-code.jpg" alt="QR Code">
-</div>
+            
                 <IconButton icon={<GithubIcon />} 
                 onClick={ () => {
                   displayQrcode();

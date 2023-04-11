@@ -108,17 +108,12 @@ function displayQrcode() {
 
   // Explicitly define the type of `popup` as `Window | null`
     // Try to open the popup window
-    let popup = window.open(popupUrl, 'popup', options);
+    let popup: Window | null = window.open(popupUrl, options);
+    popup!.close(); // 非空断言操作符表示你能够肯定该变量不为Null，从而避免了TypeError
+    
 
-    // Load the QR code image in the popup
-    if (popup) {
-      popup.addEventListener('load', function () {
-        let img = popup.document.querySelector('img');
-        img.src = '/qrcode.png';
-      });
-    } else {
-      console.error('Failed to open popup window');
-    }
+  
+    
 
 }
 

@@ -91,6 +91,20 @@ function displayQrcode() {
     console.error('Cannot find target element');
   }
 }
+window.onload = () => {
+  const button: HTMLElement | null = document.getElementById('my-button');
+  const qrCodeContainer: HTMLElement | null = document.getElementById('qr-code-container');
+
+  if (button && qrCodeContainer) {
+    button.onmouseover = () => {
+      qrCodeContainer.style.display = 'block';
+    };
+
+    button.onmouseout = () => {
+      qrCodeContainer.style.display = 'none';
+    };
+  }
+};
 
 
 function useDragSideBar() {
@@ -232,12 +246,15 @@ function _Home() {
             {/* <button onClick={displayQrcode}> */}
             
             
-
+            <div id="qr-code-container">
+  <img id="qr-code" src="path/to/your/qr-code.jpg" alt="QR Code">
+</div>
                 <IconButton icon={<GithubIcon />} 
                 onClick={ () => {
                   displayQrcode();
                   
                 }}
+                
                 shadow />
              
             </div>

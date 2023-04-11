@@ -84,29 +84,42 @@ function useSwitchTheme() {
     }
   }, [config.theme]);
 }
+//div弹窗
+// function displayQrcode() {
+//   const container = document.createElement('div');
+//   container.classList.add('popup-container');
 
+//   const content = document.createElement('div');
+//   content.classList.add('popup-content');
+
+//   const img = new Image();
+//   img.src = '/qrcode.png';
+
+//   const closeButton = document.createElement('button');
+//   closeButton.classList.add('popup-close');
+//   closeButton.innerText = '关闭';
+//   closeButton.onclick = function () {
+//     document.body.removeChild(container);
+//   };
+
+//   content.appendChild(img);
+//   content.appendChild(closeButton);
+
+//   container.appendChild(content);
+//   document.body.appendChild(container);
+// }
 function displayQrcode() {
-  const container = document.createElement('div');
-  container.classList.add('popup-container');
+  const url = '/qrcode.png';
+  const name = 'qrcode_popup';
+  const width = 400;
+  const height = 400;
 
-  const content = document.createElement('div');
-  content.classList.add('popup-content');
+  const left = window.screenX + (window.innerWidth - width) / 2;
+  const top = window.screenY + (window.innerHeight - height) / 2;
 
-  const img = new Image();
-  img.src = '/qrcode.png';
+  const options = `left=${left},top=${top},width=${width},height=${height}`;
 
-  const closeButton = document.createElement('button');
-  closeButton.classList.add('popup-close');
-  closeButton.innerText = '关闭';
-  closeButton.onclick = function () {
-    document.body.removeChild(container);
-  };
-
-  content.appendChild(img);
-  content.appendChild(closeButton);
-
-  container.appendChild(content);
-  document.body.appendChild(container);
+  window.open(url, name, options);
 }
 
 //旧非弹窗方法
@@ -262,7 +275,7 @@ function _Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         
-        <div id="target"></div>
+        {/* <div id="target"></div> */}
        
 
         

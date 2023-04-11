@@ -470,15 +470,22 @@
   width: 100%;
 }
 
-#qr-code-container {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  margin-left: 10px;
-  display: none;
+.grcode{ position: relative;
 }
-
-#qr-code {
-  max-width: 200px;
-  max-height: 200px;
+.grcode img{
+position: absolute;
+height: 140px;
+width: 140px;
+top: -155px;
+right: -55px;
+transform-origin: bottom;
+transform: scale(0);
+opacity: 0;
+-webkit-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+.grcode:hover img {
+transform: scale(1);
+opacity: 1;
 }

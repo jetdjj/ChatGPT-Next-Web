@@ -91,20 +91,7 @@ function displayQrcode() {
     console.error('Cannot find target element');
   }
 }
-window.onload = () => {
-  const button: HTMLElement | null = document.getElementById('my-button');
-  const qrCodeContainer: HTMLElement | null = document.getElementById('qr-code-container');
 
-  if (button && qrCodeContainer) {
-    button.onmouseover = () => {
-      qrCodeContainer.style.display = 'block';
-    };
-
-    button.onmouseout = () => {
-      qrCodeContainer.style.display = 'none';
-    };
-  }
-};
 
 
 function useDragSideBar() {
@@ -203,9 +190,10 @@ function _Home() {
       >
         <button id="my-button">Hover me</button>
         <div id="target"></div>
-        <div id="qr-code-container">
-  <img id="qr-code" src="path/to/your/qr-code.jpg" alt="QR Code">
-</div>
+        <span class="grcode"
+style="display: inline-block;vertical-align:middle;
+background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
+<img src="/docs/images/qrcode.png"> </span>
         
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>

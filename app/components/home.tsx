@@ -242,11 +242,12 @@ function _Home() {
                 }}
                 
                 shadow />
-             <span class="grcode"
+             
+            </div>
+            <span class="grcode"
 style="display: inline-block;vertical-align:middle;
 background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
 <img src="/docs/images/qrcode.png"> </span>
-            </div>
           </div>
           <div>
             <IconButton

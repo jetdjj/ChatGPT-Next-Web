@@ -101,10 +101,6 @@ function displayQrcode() {
   }
 }
 
-function handlePageButtonClick() {
-  console.log("Button is clicked");
-  setIsModalOpen(true);
-}
 
 function Modal({ onClose }) {
   return (

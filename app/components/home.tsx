@@ -25,7 +25,6 @@ import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
 
-import qrcode from "/docs/images/qrcode.png";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -117,15 +116,7 @@ function Modal({ onClose }: ModalProps) {
 
 
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  function handlePageButtonClick() {
-    setIsModalOpen(true);
-  }
-
-  function closeModal() {
-    setIsModalOpen(false);
-  }
 
  
 
@@ -205,6 +196,16 @@ function _Home() {
   // setting
   const [openSettings, setOpenSettings] = useState(false);
   const config = useChatStore((state) => state.config);
+//QRcode
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handlePageButtonClick() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
 
   // drag side bar
   const { onDragMouseDown } = useDragSideBar();

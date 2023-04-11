@@ -190,7 +190,14 @@ function _Home() {
       >
         
         <div id="target"></div>
-        
+        <button class="qrcode-button">
+  <span class="qrcode-icon" style="display: inline-block;vertical-align:middle;
+       background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
+    <img src="/docs/images/qrcode.png"> 
+  </span>
+  显示二维码
+</button>
+
         
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>

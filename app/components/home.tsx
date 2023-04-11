@@ -37,6 +37,10 @@ export function Loading(props: { noLogo?: boolean }) {
 }
 
 
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+
 
 
 
@@ -99,7 +103,48 @@ function displayQrcode() {
 
 function handlePageButtonClick() {
   console.log("Button is clicked");
-  // 这里可以添加具体的业务逻辑处理
+  setIsModalOpen(true);
+}
+render() {
+  return (
+    <div>
+      <button onClick={handlePageButtonClick}>显示二维码</button>
+      {isModalOpen && (
+        <div className="modal">
+          <img src="/qrcode.png" alt="QR code" />
+        </div>
+      )}
+    </div>
+  );
+}
+function Modal({ onClose }) {
+  return (
+    <div className="modal">
+      <button onClick={onClose}>关闭</button>
+      <img src="/images/qrcode.png" alt="QR code" />
+    </div>
+  );
+}
+
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handlePageButtonClick() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
+  return (
+    <div>
+      <button onClick={handlePageButtonClick}>显示二维码</button>
+      {isModalOpen && (
+        <Modal onClose={closeModal} />
+      )}
+    </div>
+  );
 }
 
 

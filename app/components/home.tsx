@@ -174,6 +174,7 @@ function _Home() {
   }
 
   return (
+    <>
     <div
       className={`${
         config.tightBorder && !isMobileScreen()
@@ -264,6 +265,7 @@ function _Home() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

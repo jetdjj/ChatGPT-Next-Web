@@ -124,6 +124,37 @@ const useShowQRCode = () => {
     </div>
   );
 };
+const QRCodeButton = ({ showQRCode, setShowQRCode }) => (
+  <button
+    onClick={() => setShowQRCode(!showQRCode)}
+    style={{ position: 'relative', textAlign: 'center' }}
+  >
+    {/* 在按钮上渲染二维码图像 */}
+    {showQRCode && (
+      <img
+        src="https://example.com/my-qrcode.png"
+        alt="QR code"
+        style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translate(-50%, 5px)' }}
+      />
+    )}
+    {/* 按钮的其他内容 */}
+    <span style={{ whiteSpace: 'nowrap' }}>
+      Scan QR code
+    </span>
+  </button>
+);
+
+const MyComponent = () => {
+  const [showQRCode, setShowQRCode] = useShowQRCode(); // 在组件内使用自定义钩子函数
+
+  return (
+    <div>
+      {/* 其他组件内容 */}
+      <QRCodeButton showQRCode={showQRCode} setShowQRCode={setShowQRCode} />
+    </div>
+  );
+};
+
 
 function useDragSideBar() {
   const limit = (x: number) => Math.min(500, Math.max(220, x));

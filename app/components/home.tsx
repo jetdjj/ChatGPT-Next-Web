@@ -224,7 +224,7 @@ function _Home() {
               />
             </div>
             <div className={styles["sidebar-action"]}>
-            <button onClick={displayQrcode}>
+            {/* <button onClick={displayQrcode}> */}
                 <IconButton icon={<GithubIcon />} shadow />
              
             </div>

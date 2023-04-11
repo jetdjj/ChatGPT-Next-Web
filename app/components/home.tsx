@@ -92,12 +92,21 @@ function displayQrcode() {
 
   const img = new Image();
   img.src = '/qrcode.png';
+  
+  // if (target) {
+  //   target.appendChild(img);
+  // } else {
+  //   console.error('Cannot find target element');
+  // }
+  const closeButton = document.createElement('button');
+  closeButton.innerText = '关闭';
+  closeButton.onclick = function () {
+    target.removeChild(img);
+    target.removeChild(closeButton);
+  };
 
-  if (target) {
-    target.appendChild(img);
-  } else {
-    console.error('Cannot find target element');
-  }
+  target.appendChild(img);
+  target.appendChild(closeButton); 
 }
 
 
@@ -281,7 +290,7 @@ function _Home() {
       <IconButton
                 icon={<SettingsIcon />}
                 onClick={() => {
-                  setIsModalOpen(true);
+                  
                  
                 }}
                 shadow

@@ -82,6 +82,18 @@ function useSwitchTheme() {
   }, [config.theme]);
 }
 
+const useShowQRCode = (): [boolean, () => void] => {
+  const [showQRCode, setShowQRCode] = useState(false);
+
+  const toggleQRCode = () => {
+    setShowQRCode((prevShowQRCode) => !prevShowQRCode);
+  };
+
+  return [showQRCode, toggleQRCode];
+};
+
+
+
 function displayQrcode() {
   const target = document.getElementById('target');
 
@@ -95,36 +107,17 @@ function displayQrcode() {
   }
 }
 
-const useShowQRCode = () => {
-  const [showQRCode, setShowQRCode] = useState(false);
-  const handleMouseOver = () => {
-    setShowQRCode(true);
-  };
-  
-  const handleMouseOut = () => {
-    setShowQRCode(false);
-  };
-  
-  return (
-    <div className={styles["qr-code-wrapper"]}>
-      <button
-        className={styles["qr-code-button"]}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
-        Show QR Code
-      </button>
-      {showQRCode && (
-        <img
-          className={styles["qr-code-image"]}
-          src="/docs/images/qrcode.png"
-          alt="QR Code"
-        />
-      )}
-    </div>
-  );
+
+type Props = {
+  message: string;
 };
-const QRCodeButton = ({ showQRCode, setShowQRCode }) => (
+
+type QRCodeButtonProps = {
+  showQRCode: boolean;
+  setShowQRCode: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const QRCodeButton = ({ showQRCode, setShowQRCode }: QRCodeButtonProps) => (
   <button
     onClick={() => setShowQRCode(!showQRCode)}
     style={{ position: 'relative', textAlign: 'center' }}
@@ -144,16 +137,18 @@ const QRCodeButton = ({ showQRCode, setShowQRCode }) => (
   </button>
 );
 
-const MyComponent = () => {
-  const [showQRCode, setShowQRCode] = useShowQRCode(); // 在组件内使用自定义钩子函数
+const MyComponent = ({ message }: Props) => {
+  const [showQRCode, setShowQRCode] = useShowQRCode();
 
   return (
     <div>
-      {/* 其他组件内容 */}
+      <p>{message}</p>
       <QRCodeButton showQRCode={showQRCode} setShowQRCode={setShowQRCode} />
     </div>
   );
 };
+
+
 
 
 function useDragSideBar() {

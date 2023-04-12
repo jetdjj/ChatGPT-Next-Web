@@ -126,7 +126,7 @@ function useSwitchTheme() {
 // }
 // }
 
-function WechatIcon() {
+function Wechat() {
   const [showImage, setShowImage] = useState(false);
 
   function handleMouseEnter() {
@@ -138,9 +138,9 @@ function WechatIcon() {
   }
 
   return (
-    <div className={styles['WechatIcon']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={styles['Wechat']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {showImage && <img src="/qrcode.png" alt="image" />}
-      <i className="WechatIcon"></i>
+      <i className="Wechat"></i>
     </div>
   );
 }

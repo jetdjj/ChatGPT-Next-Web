@@ -317,7 +317,7 @@ function _Home() {
                 <IconButton icon={<WechatIcon />} 
                 
                 onClick={ () => {
-                  showPopup();
+                  
                   
                 }}
                 

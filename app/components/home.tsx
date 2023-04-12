@@ -103,46 +103,27 @@ function useSwitchTheme() {
 
 
 //旧非弹窗方法
-// function displayQrcode() {
-//   const target = document.getElementById('target');
+function displayQrcode() {
+  const target = document.getElementById('target');
 
-//   const img = new Image();
-//   img.src = '/qrcode.png';
+  const img = new Image();
+  img.src = '/qrcode.png';
   
-//   if (target) {
-//     // target.appendChild(img);
+  if (target) {
+    target.appendChild(img);
 
-//   const closeButton = document.createElement('button');
-//   closeButton.innerText = '关闭';
-//   closeButton.onclick = function () {
-//     target.removeChild(img);
-//     target.removeChild(closeButton);
-//   };
+  const closeButton = document.createElement('button');
+  closeButton.innerText = '关闭';
+  closeButton.onclick = function () {
+    target.removeChild(img);
+    target.removeChild(closeButton);
+  };
 
-//   target.appendChild(img);
-//   target.appendChild(closeButton); 
-// } else {
-//   console.error('Cannot find target element');
-// }
-// }
-
-function Wechat() {
-  const [showImage, setShowImage] = useState(false);
-
-  function handleMouseEnter() {
-    setShowImage(true);
-  }
-
-  function handleMouseLeave() {
-    setShowImage(false);
-  }
-
-  return (
-    <div className={styles['Wechat']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {showImage && <img src="/qrcode.png" alt="image" />}
-      <i className="Wechat"></i>
-    </div>
-  );
+  target.appendChild(img);
+  target.appendChild(closeButton); 
+} else {
+  console.error('Cannot find target element');
+}
 }
 
 
@@ -253,7 +234,7 @@ function _Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         
-        {/* <div id="target"></div> */}
+       
        
 
         
@@ -276,7 +257,7 @@ function _Home() {
         >
           <ChatList />
         </div>
-
+        <div id="target"></div>
         <div className={styles["sidebar-tail"]}>
           <div className={styles["sidebar-actions"]}>
             <div className={styles["sidebar-action"] + " " + styles.mobile}>
@@ -317,7 +298,7 @@ function _Home() {
                 <IconButton icon={<WechatIcon />} 
                 
                 onClick={ () => {
-                  Wechat();
+                  displayQrcode();
                   
                 }}
                 

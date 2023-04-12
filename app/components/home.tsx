@@ -102,6 +102,7 @@ function useSwitchTheme() {
 
 
 
+
 //旧非弹窗方法
 // function displayQrcode() {
 //   const target = document.getElementById('target');
@@ -126,46 +127,7 @@ function useSwitchTheme() {
 // }
 // }
 
-function displayQrcode() {
-  const page = document.getElementById('page');
 
-  const img = new Image();
-  img.src = '/qrcode.png';
-
-  const container = document.createElement('div');
-  container.classList.add(styles.qrcodeContainer);
-
-  const mask = document.createElement('div');
-  mask.classList.add(styles.qrcodeMask);
-  mask.onclick = function () {
-    closeQrcode();
-  };
-
-  const closeButton = document.createElement('button');
-  closeButton.innerText = '关闭';
-  closeButton.onclick = function () {
-    closeQrcode();
-  };
-
-  container.appendChild(img);
-  container.appendChild(closeButton);
-  page?.appendChild(mask);
-  page?.appendChild(container);
-
-  const { clientWidth, clientHeight } = document.documentElement;
-  const { width, height } = img;
-  const marginLeft = -width / 2;
-  const marginTop = -height / 2;
-  container.style.top = `50%`;
-  container.style.left = `50%`;
-  container.style.marginTop = `${marginTop}px`;
-  container.style.marginLeft = `${marginLeft}px`;
-
-  function closeQrcode() {
-    page?.removeChild(mask);
-    page?.removeChild(container);
-  }
-}
 
 
 
@@ -253,6 +215,13 @@ function _Home() {
   function closeModal() {
     setIsModalOpen(false);
   }
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseOver =() =>{
+    setIsHovering(true);
+  }
+  const handleMouseOut =()=>{
+    setIsHovering(false);
+  }
 
   // drag side bar
   const { onDragMouseDown } = useDragSideBar();
@@ -300,6 +269,20 @@ function _Home() {
           <ChatList />
         </div>
         <div id="target"></div>
+        <div 
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        ><IconButton icon={<CloseIcon />}
+        
+      />
+      {isHovering&& (
+        <div>
+          <h2>Only visible when</h2>
+          <h2>www.exmple.com</h2>
+          <image src ="/qrcode.png"></image>
+        </div>
+      )}
+      </div>
         <div className={styles["sidebar-tail"]}>
           <div className={styles["sidebar-actions"]}>
             <div className={styles["sidebar-action"] + " " + styles.mobile}>

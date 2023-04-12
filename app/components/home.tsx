@@ -104,28 +104,28 @@ function useSwitchTheme() {
 
 
 //旧非弹窗方法
-// function displayQrcode() {
-//   const target = document.getElementById('target');
+function displayQrcode() {
+  const target = document.getElementById('target');
 
-//   const img = new Image();
-//   img.src = '/qrcode.png';
+  const img = new Image();
+  img.src = '/qrcode.png';
   
-//   if (target) {
-//     target.appendChild(img);
+  if (target) {
+    target.appendChild(img);
 
-//   const closeButton = document.createElement('button');
-//   closeButton.innerText = '关闭';
-//   closeButton.onclick = function () {
-//     target.removeChild(img);
-//     target.removeChild(closeButton);
-//   };
+  const closeButton = document.createElement('button');
+  closeButton.innerText = '关闭';
+  closeButton.onclick = function () {
+    target.removeChild(img);
+    target.removeChild(closeButton);
+  };
 
-//   target.appendChild(img);
-//   target.appendChild(closeButton); 
-// } else {
-//   console.error('Cannot find target element');
-// }
-// }
+  target.appendChild(img);
+  target.appendChild(closeButton); 
+} else {
+  console.error('Cannot find target element');
+}
+}
 
 
 

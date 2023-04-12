@@ -99,7 +99,7 @@ function useSwitchTheme() {
 //   window.open(url, name, options);
 // }
 function displayQrcode() {
-  const popupUrl = '/popup.html';
+  const popupUrl = './popup.html';
   const width = 600;
   const height = 600;
   const left = (window.screen.width - width) / 2;

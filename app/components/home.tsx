@@ -127,7 +127,7 @@ function useSwitchTheme() {
 // }
 
 function displayQrcode() {
-  const page = document.getElementById('page') as HTMLBodyElement;
+  const page = document.getElementById('page');
 
   const img = new Image();
   img.src = '/qrcode.png';
@@ -149,8 +149,8 @@ function displayQrcode() {
 
   container.appendChild(img);
   container.appendChild(closeButton);
-  page.appendChild(mask);
-  page.appendChild(container);
+  page?.appendChild(mask);
+  page?.appendChild(container);
 
   const { clientWidth, clientHeight } = document.documentElement;
   const { width, height } = img;
@@ -162,8 +162,8 @@ function displayQrcode() {
   container.style.marginLeft = `${marginLeft}px`;
 
   function closeQrcode() {
-    page.removeChild(mask);
-    page.removeChild(container);
+    page?.removeChild(mask);
+    page?.removeChild(container);
   }
 }
 

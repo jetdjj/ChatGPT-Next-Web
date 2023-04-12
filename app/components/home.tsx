@@ -145,9 +145,12 @@ function displayQrcode() {
 // }
 // }
 
-
-
-
+function displayQrcodeAlert() {
+alert('这是一张图片！');
+const img = new Image()
+img.src = '/qrcode.png';
+alert(img); // 会弹出一个带有图片的弹窗
+}
 
 
 
@@ -322,8 +325,8 @@ function _Home() {
                 <IconButton icon={<GithubIcon />} 
                 
                 onClick={ () => {
-                  displayQrcode();
-                  
+                  // displayQrcode();
+                  displayQrcodeAlert();
                 }}
                 
                 shadow />

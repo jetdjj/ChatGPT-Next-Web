@@ -5,6 +5,7 @@ const tw: LocaleType = {
   WIP: "該功能仍在開發中……",
   Error: {
     Unauthorized: "目前您的狀態是未授權，請前往設定頁面輸入授權碼。",
+    Image: "/qrcode.png"
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 條對話`,

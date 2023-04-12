@@ -6,7 +6,8 @@ const en: LocaleType = {
   Error: {
     Unauthorized:
       "Unauthorized access, please enter access code in settings page.",
-  },
+      Image: "/qrcode.png"
+    },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} messages`,
   },

@@ -103,28 +103,70 @@ function useSwitchTheme() {
 
 
 //旧非弹窗方法
+// function displayQrcode() {
+//   const target = document.getElementById('target');
+
+//   const img = new Image();
+//   img.src = '/qrcode.png';
+  
+//   if (target) {
+//     target.appendChild(img);
+
+//   const closeButton = document.createElement('button');
+//   closeButton.innerText = '关闭';
+//   closeButton.onclick = function () {
+//     target.removeChild(img);
+//     target.removeChild(closeButton);
+//   };
+
+//   target.appendChild(img);
+//   target.appendChild(closeButton); 
+// } else {
+//   console.error('Cannot find target element');
+// }
+// }
+
 function displayQrcode() {
-  const target = document.getElementById('target');
+  const page = document.getElementById('page') as HTMLBodyElement;
 
   const img = new Image();
   img.src = '/qrcode.png';
-  
-  if (target) {
-    target.appendChild(img);
+
+  const container = document.createElement('div');
+  container.classList.add(styles.qrcodeContainer);
+
+  const mask = document.createElement('div');
+  mask.classList.add(styles.qrcodeMask);
+  mask.onclick = function () {
+    closeQrcode();
+  };
 
   const closeButton = document.createElement('button');
   closeButton.innerText = '关闭';
   closeButton.onclick = function () {
-    target.removeChild(img);
-    target.removeChild(closeButton);
+    closeQrcode();
   };
 
-  target.appendChild(img);
-  target.appendChild(closeButton); 
-} else {
-  console.error('Cannot find target element');
+  container.appendChild(img);
+  container.appendChild(closeButton);
+  page.appendChild(mask);
+  page.appendChild(container);
+
+  const { clientWidth, clientHeight } = document.documentElement;
+  const { width, height } = img;
+  const marginLeft = -width / 2;
+  const marginTop = -height / 2;
+  container.style.top = `50%`;
+  container.style.left = `50%`;
+  container.style.marginTop = `${marginTop}px`;
+  container.style.marginLeft = `${marginLeft}px`;
+
+  function closeQrcode() {
+    page.removeChild(mask);
+    page.removeChild(container);
+  }
 }
-}
+
 
 
 

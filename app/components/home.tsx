@@ -106,14 +106,14 @@ function displayQrcode() {
   const top = (window.screen.height - height) / 2;
   const options = `width=${width},height=${height},left=${left},top=${top}`;
 
-  let popup = window.open(popupUrl, 'popup', options)!;
+  window.open(popupUrl, 'popup', options);
 
   // Load the QR code image in the popup
-  popup.addEventListener('load', function () {
-    let img = popup.document.querySelector('img')as HTMLImageElement;
-    //二维码图床链接，不能用系统静态资源，vercel只能读取外部链接图片
-    img.src = 'https://i.328888.xyz/2023/04/12/iB8ZFa.png';
-  });
+  // popup.addEventListener('load', function () {
+  //   let img = popup.document.querySelector('img')as HTMLImageElement;
+  //   //二维码图床链接，不能用系统静态资源，vercel只能读取外部链接图片
+  //   img.src = 'https://i.328888.xyz/2023/04/12/iB8ZFa.png';
+  // });
 }
 
 

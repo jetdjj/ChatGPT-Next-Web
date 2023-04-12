@@ -98,7 +98,7 @@ function useSwitchTheme() {
 
 //   window.open(url, name, options);
 // }
-// function displayQrcode() {
+function displayQrcode() {
   let popup = document.querySelector('.popup')as HTMLElement;
   let popUpContent = popup.querySelector('.popup__content')as HTMLElement;
   let popupIframe = popup.querySelector('.popup__iframe')as HTMLIFrameElement;
@@ -124,7 +124,7 @@ function useSwitchTheme() {
     popupIframe.src = '';
     popUpContent.style.visibility = 'hidden';
   });
-// }
+ }
 
 
 
@@ -326,7 +326,7 @@ function _Home() {
                 <IconButton icon={<WechatIcon />} 
                 
                 onClick={ () => {
-                  showPopup();
+                  displayQrcode();
                   
                 }}
                 

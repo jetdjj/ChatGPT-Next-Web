@@ -11,6 +11,7 @@ import SettingsIcon from "../icons/settings.svg";
 import WechatIcon from "../icons/wechat2.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 
+import HomeIcon from "../icons/home-icons.svg"
 import BotIcon from "../icons/bot.svg";
 import AddIcon from "../icons/add.svg";
 import LoadingIcon from "../icons/three-dots.svg";
@@ -104,29 +105,37 @@ function useSwitchTheme() {
 
 
 //旧非弹窗方法
-function displayQrcode() {
-  const target = document.getElementById('target');
+// function displayQrcode() {
+//   const target = document.getElementById('target');
 
-  const img = new Image();
-  img.src = '/qrcode.png';
+//   const img = new Image();
+//   img.src = '/qrcode.png';
   
-  if (target) {
-    target.appendChild(img);
+//   if (target) {
+//     target.appendChild(img);
 
-  const closeButton = document.createElement('button');
-  closeButton.innerText = '关闭';
-  closeButton.onclick = function () {
-    target.removeChild(img);
-    target.removeChild(closeButton);
-  };
+//   const closeButton = document.createElement('button');
+//   closeButton.innerText = '关闭';
+//   closeButton.onclick = function () {
+//     target.removeChild(img);
+//     target.removeChild(closeButton);
+//   };
 
-  target.appendChild(img);
-  target.appendChild(closeButton); 
-} else {
-  console.error('Cannot find target element');
+//   target.appendChild(img);
+//   target.appendChild(closeButton); 
+// } else {
+//   console.error('Cannot find target element');
+// }
+// }
+
+function showAlert() {
+  const msg = 
+    "国际快速专线：\n" +
+    "4399djj.ocm\n" +
+    "国内直连专线：\n" +
+    "4399djj.ocm\n";
+  window.alert(msg);
 }
-}
-
 
 
 
@@ -272,13 +281,11 @@ function _Home() {
         <div 
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
-        ><IconButton icon={<CloseIcon />}
+        ><IconButton icon={<WechatIcon />}
         
       />
       {isHovering&& (
         <div>
-          <h2>Only visible when</h2>
-          <h2>www.exmple.com</h2>
           <img src ="/qrcode.png"/>
         </div>
       )}
@@ -320,10 +327,10 @@ function _Home() {
                 background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
                 <img src="/docs/images/qrcode.png"> </div> */}
             
-                <IconButton icon={<WechatIcon />} 
+                <IconButton icon={<HomeIcon />} 
                 
                 onClick={ () => {
-                  displayQrcode();
+                  showAlert();
                   
                 }}
                 

@@ -98,33 +98,7 @@ function useSwitchTheme() {
 
 //   window.open(url, name, options);
 // }
-// function displayQrcode() {
-  let popup = document.querySelector('.popup')as HTMLElement;
-  let popUpContent = popup.querySelector('.popup__content')as HTMLElement;
-  let popupIframe = popup.querySelector('.popup__iframe')as HTMLIFrameElement;
-  let popupLoading = popup.querySelector('.popup__loading')as HTMLElement;
-  let closeBtn = popup.querySelector('.popup__header .popup__close')as HTMLElement;
-  let popupUrl = "/popup.html";
 
-  function showPopup() {
-    popup.style.display = 'block';
-    popupLoading.style.display = 'block';
-    popupIframe.addEventListener('load', onContentLoad);
-    popupIframe.src = popupUrl;
-  }
-
-  function onContentLoad() {
-    popupLoading.style.display = 'none';
-    popupIframe.removeEventListener('load', onContentLoad);
-    popUpContent.style.visibility = 'visible';
-  }
-
-  closeBtn.addEventListener('click', function () {
-    popup.style.display = 'none';
-    popupIframe.src = '';
-    popUpContent.style.visibility = 'hidden';
-  });
-//  }
 
 
 
@@ -152,7 +126,24 @@ function useSwitchTheme() {
 // }
 // }
 
+function WechatIcon() {
+  const [showImage, setShowImage] = useState(false);
 
+  function handleMouseEnter() {
+    setShowImage(true);
+  }
+
+  function handleMouseLeave() {
+    setShowImage(false);
+  }
+
+  return (
+    <div className={styles['WechatIcon']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {showImage && <img src="/qrcode.png" alt="image" />}
+      <i className="WechatIcon"></i>
+    </div>
+  );
+}
 
 
 

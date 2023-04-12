@@ -98,13 +98,13 @@ function useSwitchTheme() {
 
 //   window.open(url, name, options);
 // }
-function displayQrcode() {
+// function displayQrcode() {
   let popup = document.querySelector('.popup')as HTMLElement;
   let popUpContent = popup.querySelector('.popup__content')as HTMLElement;
   let popupIframe = popup.querySelector('.popup__iframe')as HTMLIFrameElement;
   let popupLoading = popup.querySelector('.popup__loading')as HTMLElement;
   let closeBtn = popup.querySelector('.popup__header .popup__close')as HTMLElement;
-  let popupUrl = "https://example.com";
+  let popupUrl = "/popup.html";
 
   function showPopup() {
     popup.style.display = 'block';
@@ -124,7 +124,7 @@ function displayQrcode() {
     popupIframe.src = '';
     popUpContent.style.visibility = 'hidden';
   });
- }
+//  }
 
 
 
@@ -326,7 +326,7 @@ function _Home() {
                 <IconButton icon={<WechatIcon />} 
                 
                 onClick={ () => {
-                  displayQrcode();
+                  showPopup();
                   
                 }}
                 

@@ -278,18 +278,7 @@ function _Home() {
           <ChatList />
         </div>
         <div id="target"></div>
-        <div 
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        ><IconButton icon={<WechatIcon />}
         
-      />
-      {isHovering&& (
-        <div>
-          <img src ="/qrcode.png"/>
-        </div>
-      )}
-      </div>
         <div className={styles["sidebar-tail"]}>
           <div className={styles["sidebar-actions"]}>
             <div className={styles["sidebar-action"] + " " + styles.mobile}>
@@ -319,6 +308,18 @@ function _Home() {
                 shadow
               />
             </div> */}
+            <div 
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        ><IconButton icon={<WechatIcon />}
+        
+      />
+      {isHovering&& (
+        <div>
+          <img src ="/qrcode.png"/>
+        </div>
+      )}
+      </div>
             <div className={styles["sidebar-action"]}>
             {/* <button onClick={displayQrcode}> */}
             

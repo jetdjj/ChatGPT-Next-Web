@@ -496,7 +496,8 @@ export function Chat(props: {
   ) {
     const copiedHello = Object.assign({}, BOT_HELLO);
     if (!accessStore.isAuthorized()) {
-      copiedHello.content = Locale.Error.Unauthorized;
+      // copiedHello.content = Locale.Error.Unauthorized;
+      copiedHello.content = Locale.Error;
     }
     context.push(copiedHello);
   }

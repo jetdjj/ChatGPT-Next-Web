@@ -8,7 +8,7 @@ import { IconButton } from "./button";
 import styles from "./home.module.scss";
 
 import SettingsIcon from "../icons/settings.svg";
-import GithubIcon from "../icons/github.svg";
+import WechatIcon from "../icons/wechat.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 
 import BotIcon from "../icons/bot.svg";
@@ -111,7 +111,8 @@ function displayQrcode() {
   // Load the QR code image in the popup
   popup.addEventListener('load', function () {
     let img = popup.document.querySelector('img')as HTMLImageElement;
-    img.src = '/public/qrcode.png';
+    //二维码图床链接，不能用系统静态资源，vercel只能读取外部链接图片
+    img.src = 'https://i.328888.xyz/2023/04/12/iB8ZFa.png';
   });
 
   
@@ -145,12 +146,6 @@ function displayQrcode() {
 // }
 // }
 
-function displayQrcodeAlert() {
-alert('这是一张图片！');
-const img = new Image()
-img.src = '/qrcode.png';
-alert(img); // 会弹出一个带有图片的弹窗
-}
 
 
 
@@ -322,11 +317,11 @@ function _Home() {
                 background: #fff url(/docs/images/qrcode.png) center top no-repeat;background-size: cover; height: 30px;width: 33px;">
                 <img src="/docs/images/qrcode.png"> </div> */}
             
-                <IconButton icon={<GithubIcon />} 
+                <IconButton icon={<WechatIcon />} 
                 
                 onClick={ () => {
-                  // displayQrcode();
-                  displayQrcodeAlert();
+                  displayQrcode();
+                  
                 }}
                 
                 shadow />

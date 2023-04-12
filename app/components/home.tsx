@@ -279,7 +279,7 @@ function _Home() {
         <div>
           <h2>Only visible when</h2>
           <h2>www.exmple.com</h2>
-          <image src ="/qrcode.png"></image>
+          <img src ="/qrcode.png"/>
         </div>
       )}
       </div>

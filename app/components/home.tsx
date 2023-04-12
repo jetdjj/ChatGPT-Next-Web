@@ -111,7 +111,7 @@ function displayQrcode() {
   // Load the QR code image in the popup
   popup.addEventListener('load', function () {
     let img = popup.document.querySelector('img')as HTMLImageElement;
-    img.src = '/qrcode.png';
+    img.src = '/public/qrcode.png';
   });
 
   

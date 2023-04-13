@@ -553,8 +553,8 @@ export function Settings(props: { closeSettings: () => void }) {
                 );
               }}
             ></InputRange>
-          </SettingItem> 
-        </List>*/}
+          </SettingItem> */}
+        </List>
       </div>
     </ErrorBoundary>
   );

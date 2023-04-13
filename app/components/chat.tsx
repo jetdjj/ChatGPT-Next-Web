@@ -581,7 +581,7 @@ export function Chat(props: {
               }}
             />
           </div>
-          <div className={styles["window-action-button"]}>
+          {/*VIP尊享 <div className={styles["window-action-button"]}>
             <IconButton
               icon={<ExportIcon />}
               bordered
@@ -592,8 +592,8 @@ export function Chat(props: {
                   session.topic,
                 );
               }}
-            />
-          </div>
+            /> 
+          </div>*/}
           {!isMobileScreen() && (
             <div className={styles["window-action-button"]}>
               <IconButton

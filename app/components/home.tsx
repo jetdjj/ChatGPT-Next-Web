@@ -130,10 +130,12 @@ function useSwitchTheme() {
 
 function showAlert() {
   const msg = 
-    "国际快速专线：\n" +
-    "4399djj.ocm\n" +
-    "国内直连专线：\n" +
-    "4399djj.ocm\n";
+    "国际体验专线：\n" +
+    "4399djj.com\n" +
+    "国内直连专线（限时免费中）：\n" +
+    "1688djj.com\n" +
+    "VIP尊享专线：\n" +
+    "～即将到来～\n";
   window.alert(msg);
 }
 

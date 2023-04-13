@@ -4,14 +4,14 @@ import type { LocaleType } from "./index";
 const tw: LocaleType = {
   WIP: "該功能仍在開發中……",
   Error: {
-    Unauthorized: "目前您的狀態是未授權，請前往設定頁面輸入授權碼。",
+    Unauthorized: "目前您的狀態是未授權，掃描右下角二維碼，關注微信公眾號獲取授權碼，並前往設定頁面輸入授權碼。",
     Image: "/qrcode.png"
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 條對話`,
   },
   Chat: {
-    SubTitle: (count: number) => `您已經與 ChatGPT 進行了 ${count} 條對話`,
+    SubTitle: (count: number) => `您已經與 ChatDJJ 進行了 ${count} 條對話`,
     Actions: {
       ChatList: "查看消息列表",
       CompressedHistory: "查看壓縮後的歷史 Prompt",
@@ -36,7 +36,7 @@ const tw: LocaleType = {
     Copy: "複製全部",
     Download: "下載檔案",
     MessageFromYou: "來自你的訊息",
-    MessageFromChatGPT: "來自 ChatGPT 的訊息",
+    MessageFromChatGPT: "來自 ChatDJJ 的訊息",
   },
   Memory: {
     Title: "上下文記憶 Prompt",

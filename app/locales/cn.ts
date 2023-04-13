@@ -3,7 +3,7 @@ import { SubmitKey } from "../store/app";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: "现在是未授权状态，左下角扫码关注公众号获取授权码，再点击左下角设置按钮输入访问密码。",
+    Unauthorized: "现在是未授权状态，左下角扫码（或微信搜索公众号“DJJ聊天”），手机用户可点击二维码图片保存在手机中，在微信扫码界面打开二维码图片。关注公众号获取授权码，再点击左下角设置按钮输入访问密码。",
     Image: "/qrcode.png"
   },
   ChatItem: {
@@ -26,7 +26,7 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return inputHints + "，/ 触发补全";
+      return inputHints + "，VIP用户可使用“/ ”触发补全";
     },
     Send: "发送",
   },

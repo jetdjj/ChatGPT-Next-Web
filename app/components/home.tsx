@@ -261,7 +261,7 @@ function _Home() {
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatAI DJJ</div>
           <div className={styles["sidebar-sub-title"]}>
-            豆浆机AI聊天机器人
+            DJJ聊天机器人，你的私人助理
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />

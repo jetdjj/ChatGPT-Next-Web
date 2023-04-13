@@ -402,7 +402,7 @@ export function Settings(props: { closeSettings: () => void }) {
               />
             )}
           </SettingItem> */}
-
+{/* 
           <SettingItem
             title={Locale.Settings.HistoryCount.Title}
             subTitle={Locale.Settings.HistoryCount.SubTitle}
@@ -553,8 +553,8 @@ export function Settings(props: { closeSettings: () => void }) {
                 );
               }}
             ></InputRange>
-          </SettingItem>
-        </List>
+          </SettingItem> 
+        </List>*/}
       </div>
     </ErrorBoundary>
   );
